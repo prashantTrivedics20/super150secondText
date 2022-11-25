@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Back-ground-changer</title>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 20px 100px;
+            /* background-color: darkmagenta; */
+        }
+        
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+            color: gold;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        p {
+            font-size: 18px;
+            text-align: justify;
+        }
+        
+        .btn {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: 2px solid gray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        #white {
+            background-color: white;
+        }
+        
+        #aqua {
+            background-color: aqua;
+        }
+        
+        #violet {
+            background-color: violet;
+        }
+        
+        #black {
+            background-color: black;
+        }
+        
+        #color-switcher {
+            text-align: center;
+        }
+        /* to do list css */
+        /* body {
+            background: linear-gradient(120deg, pink, purple);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+        } */
+        
+        header,
+        form {
+            height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        header {
+            font-size: 40px;
+        }
+        
+        form input,
+        form button {
+            padding: 10px;
+            border: none;
+            font-size: 24px;
+            background: rgb(153, 255, 80);
+            outline: none;
+        }
+        
+        form button {
+            color: purple;
+            background-color: cornflowerblue;
+            cursor: pointer;
+        }
+        
+        form button:hover {
+            color: white;
+            background-color: skyblue;
+        }
+        /* ----------------New List Container----------------- */
+        
+        .todo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .todo-list {
+            list-style: none;
+            min-width: 25%;
+        }
+        
+        .todo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            background-color: white;
+            color: black;
+            margin: 10px;
+        }
+        
+        .cmpltBtn {
+            background-color: cadetblue;
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+        }
+        
+        .deleteBtn {
+            background-color: deeppink;
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+        }
+        
+        .todo li {
+            flex: 1;
+            padding: 0px 10px;
+        }
+        
+        .fa-trash,
+        .fa-check {
+            pointer-events: none;
+        }
+        
+        .todo-done {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        
+        #fo {
+            width: 600px;
+            height: 200px;
+            border: black;
+            background-color: aqua;
+            text-align: center;
+        }
+        
+        h1 {
+            text-decoration: underline;
+        }
+        
+        .btn {
+            margin: 10px;
+        }
+        /* #color-switcher {
+            width: 600px;
+            height: 100px;
+            border: 0in;
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <div id="color-switcher">
+        <span class="btn" id="white" onclick="changeBg('#ffffff')"></span>
+        <span class="btn" id="aqua" onclick="changeBg('#7fffd4')"></span>
+        <span class="btn" id="violet" onclick="changeBg('#ce9aff')"></span>
+        <span class="btn" id="black" onclick="changeBg('#000000')"></span>
+
+    </div> -->
+
+    <!-- <h1>To-Do List</h1> -->
+    <br><br>
+    <div id="fo">
+        <h1>Search your faverate movie</h1>
+        <br>
+        <form>
+            <input type="text" class="todo-input" placeholder="search here" />
+            <button class="todo-button">
+              submit
+            </button>
+        </form>
+    </div>
+
+    <br><br><br><br>
+    <hr>
+    <div id="color-switcher">
+        <span class="btn" id="white" onclick="changeBg('#ffffff')"></span>
+        <span class="btn" id="aqua" onclick="changeBg('#7fffd4')"></span>
+        <span class="btn" id="violet" onclick="changeBg('#ce9aff')"></span>
+        <span class="btn" id="black" onclick="changeBg('#000000')"></span>
+
+    </div>
+    <hr>
+    <div class="todo-container">
+        <ul class="todo-list">
+
+        </ul>
+    </div>
+
+    <script>
+        function changeBg(color) {
+            document.body.style.backgroundColor = color;
+            let txt = document.getElementsByClassName(" text ");
+
+            let todo = document.getElementsByClassName("todo ");
+
+
+            if (color == '#000000') {
+                for (let ele of txt) {
+                    ele.style.color = "white ";
+                }
+            } else {
+                ele.style.color = "black ";
+
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
