@@ -1,34 +1,33 @@
-//alert("file conneted");
-const api_url = "https://api.tvmaze.com/search/shows?q=";
-//const api_url = "https://www.mygov.in/corona-data/covid19-statewise-status/";
-function getApiData(url) {
-    // var x = fetch(url).then((res) => { return res.json() }).then((data) => console.log(data));;
-    // console.log(x);
-    // this is for console
-
-    setTimeout(() => {
-        var x = fetch(url).then((res) => { return res.json() }).then((data) => display(data))
-            .catch((error) => console.log(error.message));
-
-    }, 3000);
-
+function changeBg(color) {
+    document.body.style.background = color;
 }
+console.log("nfhewgv")
 
-function display(APIData) {
+function SearchTheMovie() {
+    let id = document.getElementById('take').value;
+    // console.log(id);
+    const xhr = new XMLHttpRequest();
 
-    console.log(APIData);
-
-    for (let user of APIData) {
-
-        document.getElementById("mytable").appendChild(tr);
+    xhr.onload = function() {
+        let data = this.responseText;
+        data = JSON.parse(data);
+        display(data);
     }
 
+    xhr.open("GET", `https://api.tvmaze.com/search/shows?q=${id}`);
+    xhr.send();
 }
 
+function display(data) {
+    // console.log(data);
+    document.getElementById('take').value = '';
+    let imgstr = ``;
+    for (let i of data) {
+        imgstr += `<img src="${i.show.image.medium}" alt="">`;
+    }
+    document.getElementById('img').innerHTML = imgstr;
+}
 
+// tv maje api
 
-
-
-
-
-getApiData(api_url);
+// Axios ..
